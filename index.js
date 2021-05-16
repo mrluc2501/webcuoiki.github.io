@@ -118,9 +118,8 @@ app.get('/weather',function (req, res){
 		user:req.user
 	})
 })
-
-mongo = process.env.MONGODB_URL
-mongoClient.connect(mongo || "mongodb://localhost:27017", { useUnifiedTopology: true }, function (error, client) {
+const MONGODB_URL="mongodb+srv://admin:<password>@webcuoiki2021.xgv2x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoClient.connect(MONGODB_URL || "mongodb://localhost:27017", { useNewUrlParser: true, useUnifiedTopology: true }, function (error, client) {
 if (error) {
 	console.log(error);
 	return;
